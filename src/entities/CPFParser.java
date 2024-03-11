@@ -1,11 +1,12 @@
 package entities;
 
-import static java.lang.Integer.parseInt;
+import Excepctions.CPFExceptions;
 
-public class CPFValidator {
+public class CPFParser {
     String newCpf;
     String [] Validators = new String[2];
-    public CPFValidator(String newCpf) {
+    public CPFParser(String newCpf) {
+
         this.newCpf = newCpf;
         this.Validators[0] = String.valueOf(this.newCpf.charAt(9));
         this.Validators[1] = String.valueOf(this.newCpf.charAt(10));
@@ -26,12 +27,9 @@ public class CPFValidator {
         return (amount * 10) % 11;
     }
 
-    public boolean validateCPF() {
-        if(
-            this.newCpf.length() != 11 ||
-            this.newCpf.equals("00000000000") ||
-            this.newCpf.equals("12345678900")
-        )return false;
+    public boolean validateCPF() throws Exception{
+
+        if(newCpf.length() != 11) CPFExceptions.MustHave11Chars("");
 
         int rest1 = calculates(10);
         int rest2 = calculates(11);
@@ -43,5 +41,12 @@ public class CPFValidator {
         if(Integer.parseInt(this.Validators[1])== rest2)validation2 = true;
 
         return (validation1 && validation2);
+    }
+
+    public boolean parseShorthand(String cpf) throws Exception {
+        if(cpf.length() != 11) CPFExceptions.MustHave11Chars("");
+
+        this.newCpf = cpf;
+        return this.validateCPF();
     }
 }

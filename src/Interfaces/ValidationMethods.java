@@ -1,7 +1,7 @@
 package Interfaces;
 
 public interface ValidationMethods {
-    public String validateCPF(String cpf);
+    public void validateCPF(String cpf) throws Exception;
     public Object validatePhone(String number);
     public Object validateEmail(String email);
 

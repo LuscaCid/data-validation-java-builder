@@ -2,14 +2,16 @@ package entities;
 
 import Interfaces.ValidationMethods;
 
-public class ValidatorConstructor implements ValidationMethods {
+public class ParserBuilder implements ValidationMethods {
 
     @Override
-    public String validateCPF(String cpf){
-        CPFValidator cpfValidator = new CPFValidator(cpf);
+    public void validateCPF(String cpf) throws Exception {
+
+        CPFParser cpfValidator = new CPFParser(cpf);
+
         boolean results = cpfValidator.validateCPF();
-        if(!results) return  "Cpf Invalido";
-        return "Cpf valido";
+
+        if(!results) throw new Exception("invalid CPF");
     }
 
 
