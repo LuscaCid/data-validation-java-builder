@@ -21,7 +21,9 @@ public class Main {
             System.out.println(e.getMessage());
         }
         try {
-            validator.validateCep("40334410");
+            //validator.validateCep("40334410"); // without returns and throws an exception
+            String res = validator.validateCepQuery("40330410"); //return fetch response
+            System.out.println(res + " with returns");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

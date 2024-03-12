@@ -10,6 +10,10 @@ public class ParserBuilder implements ValidationMethods {
         CepParser cepParser = new CepParser(Cep);
         cepParser.validateCEP();
     }
+    public String validateCepQuery(String Cep) throws Exception {
+        CepParser cepParser = new CepParser(Cep);
+        return cepParser.validateCEP();
+    }
 
     @Override
     public void validateCPF(String cpf) throws Exception {
