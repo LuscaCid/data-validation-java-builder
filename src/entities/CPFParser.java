@@ -44,7 +44,7 @@ public class CPFParser {
     }
 
     public boolean parseShorthand(String cpf) throws Exception {
-        if(cpf.length() != 11) CPFExceptions.MustHave11Chars("");
+        if(cpf.length() != 11) CPFExceptions.MustHave11Chars("Quantidade invalida de caracteres no cpf.");
 
         this.newCpf = cpf;
         return this.validateCPF();

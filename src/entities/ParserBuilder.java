@@ -8,7 +8,7 @@ public class ParserBuilder implements ValidationMethods {
     @Override
     public void validateCep(String Cep) throws Exception {
         CepParser cepParser = new CepParser(Cep);
-        cepParser.parseLength();
+        cepParser.validateCEP();
     }
 
     @Override

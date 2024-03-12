@@ -1,5 +1,3 @@
-import Exceptions.EmailExceptions;
-import entities.EmailParser;
 import entities.ParserBuilder;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -23,7 +21,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
         try {
-            validator.validateCep("40330410");
+            validator.validateCep("40334410");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
