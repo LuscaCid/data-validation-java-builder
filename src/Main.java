@@ -1,3 +1,5 @@
+import Exceptions.EmailExceptions;
+import entities.EmailParser;
 import entities.ParserBuilder;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -13,13 +15,13 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        try {
 
-        } catch(Exception e) {
+        try {
+            validator.validateEmail("lucasgmail.com");
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-        validator.validateEmail("lucas@gmail.com");
 
     }
 }

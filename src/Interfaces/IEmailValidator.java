@@ -1,9 +1,12 @@
 package Interfaces;
 
+import Returns.GenericReturn;
+import entities.ReturnStatement;
+
 public interface IEmailValidator {
-    private boolean containsDotCom(){return false;};
-    public boolean containsAtSign();
-    public boolean containsSpaces();
+    public GenericReturn<Object, String> containsDotCom()throws Exception;
+    public GenericReturn<Object, String> containsAtSign() throws Exception;
+    public GenericReturn<Object, String> containsSpaces() throws Exception;
 
 
 }

@@ -1,5 +1,6 @@
 package entities;
 
+import Exceptions.CPFExceptions;
 import Interfaces.ValidationMethods;
 
 public class ParserBuilder implements ValidationMethods {
@@ -11,17 +12,17 @@ public class ParserBuilder implements ValidationMethods {
 
         boolean results = cpfValidator.validateCPF();
 
-        if(!results) throw new Exception("invalid CPF");
-    }
+        if(!results)CPFExceptions.InvalidateCPF();
 
-
-    @Override
-    public Object validatePhone(String number) {
-        return null;
     }
 
     @Override
-    public Object validateEmail(String email) {
-        return null;
+    public void validatePhone(String number) {
+    }
+    @Override
+    public void validateEmail(String email) throws Exception {
+        EmailParser emailParser = new EmailParser(email);
+        String response = emailParser.validateEmail();
+        System.out.println(response);
     }
 }

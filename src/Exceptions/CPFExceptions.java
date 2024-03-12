@@ -1,4 +1,4 @@
-package Excepctions;
+package Exceptions;
 
 public class CPFExceptions {
 
@@ -7,5 +7,8 @@ public class CPFExceptions {
     }
     public static void fewChars() throws Exception{
         throw new Exception("Few Chars passed to validate cpf.");
+    }
+    public static void InvalidateCPF()throws  Exception {
+        throw  new Exception("CPF invalido!");
     }
 }

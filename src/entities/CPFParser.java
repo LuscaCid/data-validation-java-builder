@@ -1,12 +1,11 @@
 package entities;
 
-import Excepctions.CPFExceptions;
+import Exceptions.CPFExceptions;
 
 public class CPFParser {
-    String newCpf;
+    private String newCpf;
     String [] Validators = new String[2];
     public CPFParser(String newCpf) {
-
         this.newCpf = newCpf;
         this.Validators[0] = String.valueOf(this.newCpf.charAt(9));
         this.Validators[1] = String.valueOf(this.newCpf.charAt(10));
@@ -29,7 +28,8 @@ public class CPFParser {
 
     public boolean validateCPF() throws Exception{
 
-        if(newCpf.length() != 11) CPFExceptions.MustHave11Chars("");
+        if(newCpf.length() > 11) CPFExceptions.MustHave11Chars("Acima de 11 caracteres.");
+        if(newCpf.length() <11)CPFExceptions.fewChars();
 
         int rest1 = calculates(10);
         int rest2 = calculates(11);
