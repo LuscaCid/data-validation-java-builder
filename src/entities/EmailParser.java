@@ -1,7 +1,6 @@
 package entities;
 import Exceptions.EmailExceptions;
 import Interfaces.IEmailValidator;
-import Returns.GenericReturn;
 
 public class EmailParser implements IEmailValidator {
     private final String email;
@@ -16,7 +15,7 @@ public class EmailParser implements IEmailValidator {
         return new ReturnStatement("Success validating email").toString();
     }
     @Override
-    public GenericReturn<Object, String> containsDotCom() throws Exception {
+    public void containsDotCom() throws Exception {
 
         boolean contains =
             this.email.contains(".com") ||
@@ -28,21 +27,18 @@ public class EmailParser implements IEmailValidator {
             this.email.contains(".br");
 
         if(!contains)EmailExceptions.WithoutDotCom("o E-mail falta com um dominio correto");
-        return new GenericReturn<>(this.email);
     }
 
     @Override
-    public GenericReturn<Object, String> containsAtSign() throws Exception{
+    public void containsAtSign() throws Exception{
         boolean contains = this.email.contains("@");
         if(!contains) EmailExceptions.WithoutAtSign();
 
-        return new GenericReturn<>(this.email);
     }
 
     @Override
-    public GenericReturn<Object, String> containsSpaces()throws Exception {
+    public void containsSpaces()throws Exception {
         if(this.email.contains(" "))EmailExceptions.containsWhiteSpaces("O email nao pode ter espacos em branco");
-        return new GenericReturn<>("que delicia");
 
     }
 

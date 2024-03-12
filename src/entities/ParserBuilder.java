@@ -6,6 +6,12 @@ import Interfaces.ValidationMethods;
 public class ParserBuilder implements ValidationMethods {
 
     @Override
+    public void validateCep(String Cep) throws Exception {
+        CepParser cepParser = new CepParser(Cep);
+        cepParser.parseLength();
+    }
+
+    @Override
     public void validateCPF(String cpf) throws Exception {
 
         CPFParser cpfValidator = new CPFParser(cpf);
@@ -22,7 +28,9 @@ public class ParserBuilder implements ValidationMethods {
     @Override
     public void validateEmail(String email) throws Exception {
         EmailParser emailParser = new EmailParser(email);
+
         String response = emailParser.validateEmail();
-        System.out.println(response);
+
+        System.out.println(response); //only for see the data
     }
 }

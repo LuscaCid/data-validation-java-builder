@@ -1,9 +1,15 @@
+# Validating data project
+
+### this module was though by developer to developers
+
+parsing data and validating some types and formats passed by params like an constructor, an builder
+
+usage 
+````java
 import Exceptions.EmailExceptions;
 import entities.EmailParser;
 import entities.ParserBuilder;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws Exception {
 
@@ -22,10 +28,15 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        try {
-            validator.validateCep("40330410");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
     }
 }
+````
+it is necessary to instantiate de validator and call the function related as the data that is passed in params
+it is completely simple to use and only needs to treatment the possible error that outcomes inside function called with a try catch block
+
+
+inside de code...
+
+``````java
+    

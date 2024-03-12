@@ -2,7 +2,7 @@ package Exceptions;
 
 import entities.ReturnStatement;
 
-public class EmailExceptions extends Throwable {
+public class EmailExceptions {
 
     public static void WithoutAtSign(String ErrorMessageOrEmpty) throws Exception {
         throw new Exception(ErrorMessageOrEmpty);
