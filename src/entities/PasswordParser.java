@@ -41,7 +41,7 @@ public class PasswordParser {
             || this.password.contains("*")
             || this.password.contains("(")
             || this.password.contains(")")
-            || this.password.contains("_")
+            || this.password.contains("_")  
             || this.password.contains("-")
             || this.password.contains("+")
         )) {

@@ -41,7 +41,7 @@ public class Main {
 
 
         try {
-            String password = "dakjsda2321dsfasdas";
+            String password = "dakjsda2321d@#sfasdas";
             validator.validatePassword(password);
         } catch (Exception e) {
 
