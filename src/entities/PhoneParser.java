@@ -1,9 +1,6 @@
 package entities;
-
 import Exceptions.PhoneExceptions;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PhoneParser {
     private final String phone;

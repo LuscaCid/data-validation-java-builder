@@ -5,9 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
-
 import Exceptions.CepException;
-import Returns.RequestObjects;
 import Interfaces.ICep;
 
 public class CepParser implements ICep {
