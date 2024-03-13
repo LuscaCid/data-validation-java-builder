@@ -50,7 +50,7 @@ public class PasswordParser {
         return true;
     }
     private boolean validateLen(){
-        return this.password.length() < 8; 
+        return this.password.length() > 8; 
     }
     private boolean validateLenOfList() {
         

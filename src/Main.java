@@ -41,10 +41,10 @@ public class Main {
 
 
         try {
-            String password = "dakjsda2321d@#sfasdas";
+            String password = "fasdas";
             validator.validatePassword(password);
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
 
     }

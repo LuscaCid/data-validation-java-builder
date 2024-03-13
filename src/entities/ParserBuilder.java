@@ -71,16 +71,28 @@ public class ParserBuilder implements ValidationMethods {
 
 
     //password validation
-    public void validatePassword(String password){
+    public void validatePassword(String password) throws Exception{
         PasswordParser passwordParser = new PasswordParser(password);
         var weak = passwordParser.getWeakMediator();
-        System.out.println(weak.isOkWithLen);
-        System.out.println(weak.isOkWithSpecialChars);
+        if(weak.isOkWithLen && !(weak.isOkWithSpecialChars)){
+            throw new ReturnStatement("Forca da senha: Media.", 400);
+
+        }
+        else if(weak.isOkWithLen && weak.isOkWithSpecialChars) {return;}
+        else if(!(weak.isOkWithLen) && !(weak.isOkWithSpecialChars)){
+            throw new ReturnStatement("Forca da senha: Fraca", 499);
+        }
     }
-    public void validatePassword(String[] password){
+    public void validatePassword(String[] password) throws Exception{
         PasswordParser passwordParser = new PasswordParser(password);
         var weak = passwordParser.getWeakMediator();
-        System.out.println(weak.isOkWithLen);
-        System.out.println(weak.isOkWithSpecialChars);
+        if(weak.isOkWithLen && !(weak.isOkWithSpecialChars)){
+            throw new ReturnStatement("Forca da senha: Media.", 400);
+
+        }
+        else if(weak.isOkWithLen && weak.isOkWithSpecialChars) {return;}
+        else if(!(weak.isOkWithLen) && !(weak.isOkWithSpecialChars)){
+            throw new ReturnStatement("Forca da senha: Fraca", 499);
+        }
     }
 }
