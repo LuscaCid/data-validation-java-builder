@@ -23,8 +23,10 @@ public class PasswordParser {
     public PasswordParser (String [] passwordList ) {
         this.password = null;
         this.passwordList = passwordList ;
+        
         boolean specialChars = this.validateSpecialCharsOfList();
         boolean lessLenThanNormal = this.validateLenOfList();
+        
         this.weakMediator = new WeakMediator(lessLenThanNormal, specialChars);
 
     }
@@ -80,8 +82,5 @@ public class PasswordParser {
         }
         return this.invalidSpecialCharsPasswords.size() > 0;
     }
-    public WeakMediator generateWeakMediator(boolean lessLenThanNormal, boolean specialChars) {
-        WeakMediator weakMediator = new WeakMediator(lessLenThanNormal, specialChars);
-        return weakMediator;
-    }
+    
 }

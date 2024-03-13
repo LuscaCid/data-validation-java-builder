@@ -63,4 +63,7 @@ public class ParserBuilder implements ValidationMethods {
 
         System.out.println(response); //only for see the data
     }
+
+    public void validatePassword(){}
+    public void validatePasswordList(){}
 }
