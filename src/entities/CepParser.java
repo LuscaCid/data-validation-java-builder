@@ -6,11 +6,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
 
+import Exceptions.CepException;
 import Returns.RequestObjects;
 import Interfaces.ICep;
 
 public class CepParser implements ICep {
-    private String cep;
+    private final String cep;
     public String fetchResponse;
     
     public CepParser(String Cep) {
@@ -29,29 +30,28 @@ public class CepParser implements ICep {
         .build();
 
         // use the client to send the request
-        CompletableFuture<String> responseFutere = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+        CompletableFuture<String> responseFuture = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
         .thenApply(HttpResponse::body);
 
-        responseFutere.thenAccept(responseBody ->  {
+        responseFuture.thenAccept(responseBody ->  {
             this.fetchResponse = responseBody;
         });
 
-        
-        responseFutere.join();
+        responseFuture.join();
     }
     public String validateCEP() throws Exception {
-        
         parseLength(); //validates cep len
         this.fetchCep(); // validate if is real
 
         if(this.fetchResponse.contains("erro")){
-            throw new ReturnStatement("Cep enviado nao encontrado", 404);
+            CepException.cepNotFound("Cep enviado nao encontrado");
+            //CepException.cepNotFound() without a message works too
         };
         return this.fetchResponse;
     }
     @Override
     public void parseLength() throws Exception{
-        if(this.cep.length() < 7)throw new ReturnStatement("O Cep deve conter 7 caracteres.", 401);
-        
+        if(this.cep.length() < 7)CepException.InvalidateLength("A quantidade caracteres nao pode ser inferior a 7.");
+        else if(this.cep.length() > 9)CepException.InvalidateLength("A quantidade caracteres nao pode ser maior que 9.");
     }
 }

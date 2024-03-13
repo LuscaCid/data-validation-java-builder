@@ -27,5 +27,17 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        try {
+            String [] arrayPhones = new String[4];
+            arrayPhones[1] = "91922334455";
+            arrayPhones[0] = "32922323235";
+            arrayPhones[3] = "23922334455";
+            arrayPhones[2] = "1192233445";
+            validator.validatePhone(arrayPhones);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
