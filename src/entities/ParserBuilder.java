@@ -6,17 +6,19 @@ import Interfaces.ValidationMethods;
 import java.util.ArrayList;
 
 public class ParserBuilder implements ValidationMethods {
-
+    //cep validation 
     @Override
     public void validateCep(String Cep) throws Exception {
         CepParser cepParser = new CepParser(Cep);
         cepParser.validateCEP();
     }
+
+    //cepquery validation
     public String validateCepQuery(String Cep) throws Exception {
         CepParser cepParser = new CepParser(Cep);
         return cepParser.validateCEP();
     }
-
+    // cpf validation
     @Override
     public void validateCPF(String cpf) throws Exception {
 
@@ -28,6 +30,8 @@ public class ParserBuilder implements ValidationMethods {
 
     }
 
+
+    //phone validation
     @Override
     public PhoneParser validatePhone(String number) throws Exception {
         return new PhoneParser(number);
@@ -55,6 +59,7 @@ public class ParserBuilder implements ValidationMethods {
         }
     }
 
+    //email validation
     @Override
     public void validateEmail(String email) throws Exception {
         EmailParser emailParser = new EmailParser(email);
@@ -64,6 +69,18 @@ public class ParserBuilder implements ValidationMethods {
         System.out.println(response); //only for see the data
     }
 
-    public void validatePassword(){}
-    public void validatePasswordList(){}
+
+    //password validation
+    public void validatePassword(String password){
+        PasswordParser passwordParser = new PasswordParser(password);
+        var weak = passwordParser.getWeakMediator();
+        System.out.println(weak.isOkWithLen);
+        System.out.println(weak.isOkWithSpecialChars);
+    }
+    public void validatePassword(String[] password){
+        PasswordParser passwordParser = new PasswordParser(password);
+        var weak = passwordParser.getWeakMediator();
+        System.out.println(weak.isOkWithLen);
+        System.out.println(weak.isOkWithSpecialChars);
+    }
 }

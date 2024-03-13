@@ -34,16 +34,16 @@ public class PasswordParser {
     private boolean validateSpecialChars() {
         if(!(
             this.password.contains("!") 
-            || password.contains("@")
-            || password.contains("#")
-            || password.contains("%")
-            || password.contains("&")
-            || password.contains("*")
-            || password.contains("(")
-            || password.contains(")")
-            || password.contains("_")
-            || password.contains("-")
-            || password.contains("+")
+            || this.password.contains("@")
+            || this.password.contains("#")
+            || this.password.contains("%")
+            || this.password.contains("&")
+            || this.password.contains("*")
+            || this.password.contains("(")
+            || this.password.contains(")")
+            || this.password.contains("_")
+            || this.password.contains("-")
+            || this.password.contains("+")
         )) {
             return false;
         }
@@ -82,5 +82,7 @@ public class PasswordParser {
         }
         return this.invalidSpecialCharsPasswords.size() > 0;
     }
-    
+    public WeakMediator getWeakMediator() {
+        return this.weakMediator;
+    }
 }

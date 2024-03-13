@@ -39,5 +39,13 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+
+        try {
+            String password = "dakjsda2321dsfasdas";
+            validator.validatePassword(password);
+        } catch (Exception e) {
+
+        }
+
     }
 }
